@@ -1,0 +1,42 @@
+### Register a new employee
+POST http://localhost:8006/employees/register
+Content-Type: application/json
+
+{
+  "employee_name": "John Doe",
+  "employee_password": "password123",
+  "employee_email": "john.doe@example.com",
+  "role_id": 1
+}
+
+### Login an employee
+POST http://localhost:8006/employees/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+
+### Get all employees (requires JWT token)
+DELETE  http://localhost:8006/employees/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+### Get an employee by ID (requires JWT token)
+GET http://localhost:8006/employees/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+
+### Update an employee (requires JWT token)
+PUT http://localhost:8006/employees/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+
+{
+  "employee_name": "John Doe Updated",
+  "employee_password": "newpassword123",
+  "employee_email": "john.doe.updated@example.com",
+  "role_id": 1
+}
+
+### Delete an employee (requires JWT token)
+DELETE http://localhost:8006/employees/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0

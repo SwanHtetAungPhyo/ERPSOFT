@@ -1,0 +1,98 @@
+### Employee Endpoints
+
+### Register a new employee
+POST http://localhost:8006/employees/register
+Content-Type: application/json
+
+{
+  "employee_name": "John Doe",
+  "employee_password": "password123",
+  "employee_email": "john.doe@example.com",
+  "role_id": 1
+}
+
+### Login an employee
+POST http://localhost:8006/employees/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+
+### Get an employee by ID
+GET http://localhost:8006/employees/1
+Authorization: Bearer {{jwt_token}}
+
+### Update an employee
+PUT http://localhost:8006/employees/1
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "employee_name": "John Doe Updated",
+  "employee_password": "newpassword123",
+  "employee_email": "john.doe.updated@example.com",
+  "role_id": 1
+}
+
+### Delete an employee
+DELETE http://localhost:8006/employees/1
+Authorization: Bearer {{jwt_token}}
+
+### Student Endpoints
+
+### Register a new student
+POST http://localhost:8006/students/register
+Content-Type: application/json
+
+{
+  "student_name": "Jane Doe",
+  "email": "jane.doe@example.com"
+}
+
+### Get a student by ID
+GET http://localhost:8006/students/1
+Authorization: Bearer {{jwt_token}}
+
+### Update a student
+PUT http://localhost:8006/students/1
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "student_name": "Jane Doe Updated",
+  "email": "jane.doe.updated@example.com"
+}
+
+### Delete a student
+DELETE http://localhost:8006/students/1
+Authorization: Bearer {{jwt_token}}
+
+### Section Endpoints
+
+### Register a new section
+POST http://localhost:8006/sections/register
+Content-Type: application/json
+
+{
+  "section_name": "Math 101",
+  "section_description": "Basic Math Course",
+  "held_by": 1
+}
+
+### Get a section by ID
+GET http://localhost:8006/sections/1
+
+### Update a section
+PUT http://localhost:8006/sections/1
+Content-Type: application/json
+
+{
+  "section_name": "Math 101 Updated",
+  "section_description": "Advanced Math Course",
+  "held_by": 1
+}
+
+### Delete a section
+DELETE http://localhost:8006/sections/1

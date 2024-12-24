@@ -1,0 +1,26 @@
+### Register a new student
+POST http://localhost:8006/students/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+
+{
+  "student_name": "Jane Doe",
+  "email": "jane.doe@example.com"
+}
+
+### Get a student by ID
+GET https://localhost:8006/students/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+### Update a student
+PUT http://localhost:8006/students/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0
+
+{
+  "student_name": "Jane Doe Updated",
+  "email": "jane.doe.updated@example.com"
+}
+
+### Delete a student
+DELETE http://localhost:8006/students/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiZW1wbG95ZWVfaWQiOjEsImV4cCI6MTczNTI1MzM2NH0.fhj390ZXB4ga2aBd5JrGIJtFNgoeDPZLMW3htrSC2h0

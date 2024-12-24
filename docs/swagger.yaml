@@ -1,0 +1,170 @@
+basePath: /
+definitions:
+  models.Announcement:
+    properties:
+      announcement_description:
+        type: string
+      announcement_id:
+        type: integer
+      created_by:
+        type: integer
+    required:
+    - announcement_description
+    - created_by
+    type: object
+  utils.ApiResponse:
+    properties:
+      body: {}
+      message:
+        type: string
+      meta_data: {}
+      status:
+        type: integer
+    type: object
+host: localhost:8006
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for a Fiber API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Fiber API
+  version: "1.0"
+paths:
+  /announcements/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an announcement
+      parameters:
+      - description: Announcement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+      summary: Delete an announcement
+      tags:
+      - announcements
+    get:
+      consumes:
+      - application/json
+      description: Get an announcement by ID
+      parameters:
+      - description: Announcement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+      summary: Get an announcement by ID
+      tags:
+      - announcements
+    put:
+      consumes:
+      - application/json
+      description: Update an announcement
+      parameters:
+      - description: Announcement ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Announcement
+        in: body
+        name: announcement
+        required: true
+        schema:
+          $ref: '#/definitions/models.Announcement'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+      summary: Update an announcement
+      tags:
+      - announcements
+  /announcements/register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new announcement
+      parameters:
+      - description: Announcement
+        in: body
+        name: announcement
+        required: true
+        schema:
+          $ref: '#/definitions/models.Announcement'
+      - description: Course ID
+        in: body
+        name: course_id
+        required: true
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.ApiResponse'
+      summary: Register a new announcement
+      tags:
+      - announcements
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
